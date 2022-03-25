@@ -1,0 +1,77 @@
+.gcrud-form-group {
+  min-height: 1rem;
+}
+
+.gcrud-form-group::after {
+  content: ' ';
+  clear: both;
+  display: block;
+}
+
+.page-number-input {
+  margin: 3px 5px 2px 5px;
+}
+
+.gc-container {
+  margin-bottom: 2rem;
+}
+.gc-container a.search-button {
+  width: 48px;
+}
+.gc-container a.search-button-big {
+  width: 180px;
+}
+.gc-container .settings-button-container {
+  margin-top: 20px;
+}
+.gc-container .displaying-paging-items {
+  margin-top: 20px;
+  margin-bottom: 1rem;
+  padding: .5rem .75rem;
+}
+.gc-container .table-label {
+  font-size: 1rem;
+}
+.gc-container .clear-search {
+  margin-left: -21px;
+  margin-top: 12px;
+}
+.gc-container .clear-all-search {
+  margin-left: -24px;
+}
+.gc-container .has-error input {
+  border-color: #D9534F;
+}
+.gc-container .form-group label {
+  text-align: right;
+  font-weight: 700;
+  padding-top: .5rem;
+}
+.gc-container .gc-pagination-container {
+  padding-top: 20px;
+}
+.gc-container .chosen-container {
+  padding-top: .5rem;
+}
+.gc-container span.page-number-input-container {
+  padding: 4px 10px;
+}
+.gc-container .settings-button-container .el-cog {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.gc-container .table-section {
+  width: 100%;
+}
+.gc-container .btn-group.open > .dropdown-menu {
+  display: block;
+}
+.gc-container .btn-group > .dropdown-menu {
+  margin-top: 38px;
+}
+
+@media screen and (max-width: 575px) {
+  .gc-container .form-group label {
+    text-align: left;
+  }
+}

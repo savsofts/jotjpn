@@ -1,0 +1,20 @@
+JOTJPN - Open Source php script to manage and resell cloud hosting. Currently it support digitalocean droplets to resell.
+
+Installation instructions:
+
+1) Upload zip and etract files.
+2) Create mysql database and import database.sql file (available in zip file)
+3) Open confi.php and database.php and update variables (located at application/config/)
+
+Thats it!
+
+Admin url: yourdomain_installation_path/index.php/login/admin
+Username:  admin
+Password:  admin
+
+Client loin url: yourdomain_installation_path/index.php/login/
+
+
+For technical support and modification contact us on https://jotjpn.com 
+
+
