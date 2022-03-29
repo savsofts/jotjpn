@@ -161,12 +161,16 @@
 	$logged_in=$this->session->userdata('logged_in');
 		 
 		$client_id=$logged_in['client_id'];
+		$sql6="select  * from jotjpn_settings where id='1' ";
+		$query=$this->db->query($sql6);
+		$setting=$query->row_array();
+		
 		?>
 <table style="border:0px;">
 <tr><td>
 <form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post" id="paypalform">
 <input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="gurpinder@savsoft.info">
+<input type="hidden" name="business" value="<?php echo $setting['paypal_receiver_id'];?>">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="item_name" value="<?php echo $this->config->item('app_name');?> Add Fund">
 <input type="hidden" name="notify_url" value="<?php echo base_url();?>/ipn.php">
@@ -297,7 +301,7 @@ $.post("<?php echo base_url();?>/razorpayOrder.php?req=createOrder&client_id=<?p
 var jdata=JSON.parse(data2.trim());
 
 var options = {
-    "key": "rzp_live_B8X0Q5A8wzw3el", // Enter the Key ID generated from the Dashboard
+    "key": "<?php echo $setting['razorpay_key'];?>", // Enter the Key ID generated from the Dashboard
     "amount": (parseFloat($('#amount').val())*75*100), // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
     "name": "<?php echo $this->config->item('app_name');?> Account Fund",
