@@ -35,7 +35,7 @@ CREATE TABLE `jhotjpn_billing` (
   `amount` float NOT NULL,
   `bill_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `balance` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -58,8 +58,8 @@ CREATE TABLE `jotjpn_assigned_servers` (
   `data_transfer_tb` int NOT NULL,
   `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `billed` float NOT NULL,
-  `assigned_server_status` enum('Active','Inactive','Processing') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `assigned_server_status` enum('Active','Inactive','Processing') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE `jotjpn_backup` (
   `server_id` int NOT NULL,
   `date` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `status` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Pending'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -84,23 +84,23 @@ CREATE TABLE `jotjpn_backup` (
 
 CREATE TABLE `jotjpn_clients` (
   `client_id` int NOT NULL,
-  `email` varchar(256) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `password` varchar(256) NOT NULL,
   `full_name` varchar(256) NOT NULL,
-  `contact_number` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `address` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `city` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `state` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `country` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `pin_code` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `contact_number` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pin_code` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `company_name` varchar(256) DEFAULT NULL,
   `tax_number` varchar(256) DEFAULT NULL,
   `account_balance` float NOT NULL,
-  `account_status` enum('Active','Inactive') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `account_status` enum('Active','Inactive') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `email_verification` enum('Pending','Verified') NOT NULL,
   `verification_code` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `jotjpn_clients`
@@ -123,7 +123,7 @@ CREATE TABLE `jotjpn_message` (
   `msg_time` int NOT NULL,
   `screenshot` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
   `msg_read` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -133,10 +133,10 @@ CREATE TABLE `jotjpn_message` (
 
 CREATE TABLE `jotjpn_region` (
   `id` int NOT NULL,
-  `region_name` varchar(256) NOT NULL,
+  `region_name` varchar(100) NOT NULL,
   `region_code` varchar(100) DEFAULT NULL,
   `region_status` enum('Active','Inactive') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `jotjpn_region`
@@ -157,7 +157,7 @@ INSERT INTO `jotjpn_region` (`id`, `region_name`, `region_code`, `region_status`
 CREATE TABLE `jotjpn_servers` (
   `id` int NOT NULL,
   `server_type_id` int NOT NULL,
-  `server_name` varchar(256) NOT NULL,
+  `server_name` varchar(100) NOT NULL,
   `price_per_month` float NOT NULL,
   `price_per_hour` varchar(256) NOT NULL,
   `vcpu` int NOT NULL,
@@ -166,7 +166,7 @@ CREATE TABLE `jotjpn_servers` (
   `data_transfer_tb` int NOT NULL,
   `other_info` varchar(1000) NOT NULL,
   `server_status` enum('Active','Inactive') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `jotjpn_servers`
@@ -187,7 +187,7 @@ CREATE TABLE `jotjpn_server_type` (
   `server_type_id` int NOT NULL,
   `type_name` varchar(100) NOT NULL,
   `description` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `jotjpn_server_type`
@@ -208,7 +208,7 @@ CREATE TABLE `jotjpn_settings` (
   `paypal_receiver_id` varchar(256) NOT NULL,
   `razorpay_id` varchar(256) NOT NULL,
   `razorpay_key` varchar(256) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `jotjpn_settings`
@@ -230,7 +230,7 @@ CREATE TABLE `jotjpn_ssh_key` (
   `fingerprint` varchar(1000) NOT NULL,
   `public_key` varchar(1000) NOT NULL,
   `ssh_key_name` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -248,7 +248,7 @@ CREATE TABLE `jotjpn_tickets` (
   `ticket_status` enum('Open','Closed') DEFAULT 'Open',
   `last_msg` int NOT NULL,
   `no_msg` int NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -265,7 +265,7 @@ CREATE TABLE `jotjpn_transaction` (
   `t_mode` varchar(256) DEFAULT NULL,
   `t_status` enum('Success','Failed','Pending') NOT NULL,
   `remark` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -277,7 +277,7 @@ CREATE TABLE `jotjpn_user` (
   `id` int NOT NULL,
   `username` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `jotjpn_user`
